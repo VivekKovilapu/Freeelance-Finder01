@@ -1,0 +1,222 @@
+/* Authentication Page Styles */
+.AuthenticatePage {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+.auth-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.auth-navbar h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-navbar p {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.auth-navbar p:hover {
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.authForm {
+    width: 100%;
+    max-width: 450px;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 80px;
+}
+
+.authForm h2 {
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: #2d3748;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.auth-subtitle {
+    color: #718096;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.authFormInputs {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.authFormInputs .form-control {
+    height: 56px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.authFormInputs .form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.authFormInputs .form-control.is-invalid {
+    border-color: #e53e3e;
+}
+
+.authFormInputs .form-control.is-invalid:focus {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.authFormInputs label {
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.invalid-feedback {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.authForm select {
+    height: 56px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0 1rem;
+    font-size: 1rem;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.authForm select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.authForm select.is-invalid {
+    border-color: #e53e3e;
+}
+
+.authForm button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    height: 56px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.authForm button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.authForm button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.auth-switch {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.auth-link {
+    color: #667eea;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .AuthenticatePage {
+        padding: 10px;
+    }
+    
+    .authForm {
+        padding: 2rem;
+        margin-top: 60px;
+    }
+    
+    .auth-navbar {
+        padding: 0 1rem;
+        height: 60px;
+    }
+    
+    .auth-navbar h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .authForm {
+        padding: 1.5rem;
+    }
+    
+    .authForm h2 {
+        font-size: 1.5rem;
+    }
+}
