@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../../styles/client/client.css'
 import { useNavigate } from 'react-router-dom'
+import { API_ENDPOINTS } from '../../config/api'
 
 const Client = () => {
 
@@ -16,7 +17,7 @@ const Client = () => {
   },[])
 
   const fetchProjects = async()=>{
-    await axios.get('http://localhost:6001/fetch-projects').then(
+    await axios.get('API_ENDPOINTS.FETCH_PROJECTS').then(
       (response)=>{
           let pros = response.data.filter(pro => pro.clientId === localStorage.getItem('userId'));
           setProjects(pros);

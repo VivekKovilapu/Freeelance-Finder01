@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/client/ClientApplications.css'
 import axios from 'axios';
+import { API_ENDPOINTS } from '../../config/api'
 
 const ProjectApplications = () => {
 
@@ -14,7 +15,7 @@ const ProjectApplications = () => {
   },[])
 
   const fetchApplications = async() =>{
-    await axios.get("http://localhost:6001/fetch-applications").then(
+    await axios.get("API_ENDPOINTS.FETCH_APPLICATIONS").then(
       (response)=>{
         setApplications(response.data.filter((application)=> application.clientId === localStorage.getItem('userId')));
         setDisplayApplications(response.data.filter((application)=> application.clientId === localStorage.getItem('userId')).reverse());
@@ -38,7 +39,7 @@ const ProjectApplications = () => {
   },[projectTitles])
 
   const handleApprove = async(id)=>{
-    await axios.get(`http://localhost:6001/approve-application/${id}`).then(
+    await axios.get(`API_ENDPOINTS.APPROVE_APPLICATION(${id}`).then(
       (response)=>{
         alert("Application approved");
         fetchApplications();
@@ -49,7 +50,7 @@ const ProjectApplications = () => {
   }
 
   const handleReject = async(id)=>{
-    await axios.get(`http://localhost:6001/reject-application/${id}`).then(
+    await axios.get(`API_ENDPOINTS.REJECT_APPLICATION(${id}`).then(
       (response)=>{
         alert("Application rejected!!");
         fetchApplications();

@@ -2,12 +2,13 @@ import React, { createContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import socketIoClient from 'socket.io-client';
+import API_BASE_URL, { API_ENDPOINTS } from '../config/api';
 
 export const GeneralContext = createContext();
 
 const GeneralContextProvider = ({children}) => {
 
-  const WS = process.env.REACT_APP_API_URL || 'http://localhost:6001';
+  const WS = API_BASE_URL;
 
   const socket = socketIoClient(WS);
 
@@ -25,7 +26,7 @@ const GeneralContextProvider = ({children}) => {
   const login = async () => {
     try {
       const loginInputs = { email, password };
-      const response = await axios.post('http://localhost:6001/login', loginInputs);
+      const response = await axios.post(API_ENDPOINTS.LOGIN, loginInputs);
       
       if (response.data.user) {
         const user = response.data.user;
@@ -52,7 +53,7 @@ const GeneralContextProvider = ({children}) => {
 
   const register = async () => {
     try {
-      const response = await axios.post('http://localhost:6001/register', inputs);
+      const response = await axios.post(API_ENDPOINTS.REGISTER, inputs);
       
       if (response.data.user) {
         const user = response.data.user;

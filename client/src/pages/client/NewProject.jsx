@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import '../../styles/client/newProject.css'
+import { API_ENDPOINTS } from '../../config/api'
 
 
 const NewProject = () => {
@@ -14,7 +15,7 @@ const NewProject = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async() =>{
-      await axios.post("http://localhost:6001/new-project", {title, description, budget, skills, clientId: localStorage.getItem('userId'),  clientName: localStorage.getItem('username'),  clientEmail: localStorage.getItem('email')}).then(
+      await axios.post(API_ENDPOINTS.NEW_PROJECT, {title, description, budget, skills, clientId: localStorage.getItem('userId'),  clientName: localStorage.getItem('username'),  clientEmail: localStorage.getItem('email')}).then(
         (response)=>{
             alert("new project added!!");
             setTitle('');

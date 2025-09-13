@@ -3,6 +3,7 @@ import '../../styles/client/ProjectWorking.css'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { GeneralContext } from '../../context/GeneralContext';
+import { API_ENDPOINTS } from '../../config/api'
 
 const ProjectWorking = () => {
 
@@ -43,7 +44,7 @@ const ProjectWorking = () => {
   },[])
 
   const fetchProject = async(id) =>{
-    await axios.get(`http://localhost:6001/fetch-project/${id}`).then(
+    await axios.get(`API_ENDPOINTS.FETCH_PROJECT(${id}`).then(
       (response)=>{
         setProject(response.data);
         setProjectId(response.data._id);
@@ -57,7 +58,7 @@ const ProjectWorking = () => {
 
 
   const handleApproveSubmission = async() =>{
-    await axios.get(`http://localhost:6001/approve-submission/${params['id']}`).then(
+    await axios.get(`API_ENDPOINTS.APPROVE_SUBMISSION(${params['id']}`).then(
       (response)=>{
         fetchProject(params['id']);
         alert("Submission approved!!");
@@ -68,7 +69,7 @@ const ProjectWorking = () => {
   }
 
   const handleRejectSubmission = async() =>{
-    await axios.get(`http://localhost:6001/reject-submission/${params['id']}`).then(
+    await axios.get(`API_ENDPOINTS.REJECT_SUBMISSION(${params['id']}`).then(
       (response)=>{
         fetchProject(params['id']);
         alert("Submission rejected!!");
@@ -96,7 +97,7 @@ const ProjectWorking = () => {
 
   const [chats, setChats] = useState();
   const fetchChats = async() =>{
-    await axios.get(`http://localhost:6001/fetch-chats/${params['id']}`).then(
+    await axios.get(`API_ENDPOINTS.FETCH_CHATS(${params['id']}`).then(
       (response) =>{
         setChats(response.data);
       }

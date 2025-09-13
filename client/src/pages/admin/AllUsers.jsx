@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { API_ENDPOINTS } from '../../config/api'
 import '../../styles/admin/allUsers.css'
 
 const AllUsers = () => {
@@ -8,7 +9,7 @@ const AllUsers = () => {
   const [users, setUsers] = useState([]);
 
   const fetchUsers = async() =>{
-    await axios.get("http://localhost:6001/fetch-users").then(
+    await axios.get("API_ENDPOINTS.FETCH_USERS").then(
       (response)=>{
           setUsers(response.data);
       }

@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import '../../styles/freelancer/ProjectData.css'
 import { GeneralContext } from '../../context/GeneralContext';
+import { API_ENDPOINTS } from '../../config/api'
 
 
 const ProjectData = () => {
@@ -37,7 +38,7 @@ const ProjectData = () => {
 
 
   const fetchProject = async(id) =>{
-    await axios.get(`http://localhost:6001/fetch-project/${id}`).then(
+    await axios.get(`API_ENDPOINTS.FETCH_PROJECT(${id}`).then(
       (response)=>{
         setProject(response.data);
         setProjectId(response.data._id);
@@ -60,7 +61,7 @@ const ProjectData = () => {
 
     const handleBidding = async() =>{
 
-      await axios.post("http://localhost:6001/make-bid", {clientId, freelancerId, projectId, proposal, bidAmount, estimatedTime}).then(
+      await axios.post("API_ENDPOINTS.MAKE_BID", {clientId, freelancerId, projectId, proposal, bidAmount, estimatedTime}).then(
         (response)=>{
             setProposal('');
             setBidAmount(0);
@@ -81,7 +82,7 @@ const ProjectData = () => {
 
     const handleProjectSubmission = async() =>{
 
-      await axios.post("http://localhost:6001/submit-project", {clientId, freelancerId, projectId, projectLink, manualLink, submissionDescription}).then(
+      await axios.post("API_ENDPOINTS.SUBMIT_PROJECT", {clientId, freelancerId, projectId, projectLink, manualLink, submissionDescription}).then(
         (response)=>{
             setProjectLink('');
             setManualLink('');
@@ -111,7 +112,7 @@ const ProjectData = () => {
 
     const [chats, setChats] = useState();
     const fetchChats = async() =>{
-      await axios.get(`http://localhost:6001/fetch-chats/${params['id']}`).then(
+      await axios.get(`API_ENDPOINTS.FETCH_CHATS(${params['id']}`).then(
         (response) =>{
           setChats(response.data);
         }
