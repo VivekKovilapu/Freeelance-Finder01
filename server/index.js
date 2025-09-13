@@ -16,7 +16,6 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 // CORS configuration
-<<<<<<< HEAD
 const allowedOrigins = [
     process.env.CLIENT_URL || "http://localhost:3000",
     "https://your-client-app.netlify.app", // Replace with your actual client URL
@@ -34,16 +33,11 @@ app.use(cors({
             callback(new Error('Not allowed by CORS'));
         }
     },
-=======
-app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
->>>>>>> 50010f0d4c56cff16d25d7892be22ae12f1c19e4
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-<<<<<<< HEAD
 // Root endpoint
 app.get('/', (req, res) => {
     res.status(200).json({ 
@@ -54,8 +48,6 @@ app.get('/', (req, res) => {
     });
 });
 
-=======
->>>>>>> 50010f0d4c56cff16d25d7892be22ae12f1c19e4
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.status(200).json({ message: 'Server is running', timestamp: new Date().toISOString() });
@@ -66,14 +58,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-<<<<<<< HEAD
         origin: allowedOrigins,
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true
-=======
-        origin: '*',
-        methods: ['GET', 'POST', 'PUT', 'DELETE']
->>>>>>> 50010f0d4c56cff16d25d7892be22ae12f1c19e4
     }
 });
 
@@ -84,11 +71,7 @@ io.on("connection", (socket) =>{
 })
 
 
-<<<<<<< HEAD
 const PORT = process.env.PORT || 6001;
-=======
-const PORT = 6001;
->>>>>>> 50010f0d4c56cff16d25d7892be22ae12f1c19e4
 
 // MongoDB Atlas connection - replace with your actual connection string
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://kovilapuvivek886_db_user:123@cluster0.2nqpdui.mongodb.net/freelancer01';
